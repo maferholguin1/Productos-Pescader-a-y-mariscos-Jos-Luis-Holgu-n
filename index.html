@@ -1,216 +1,364 @@
 
-           * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+   <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pescadería y Mariscos Germania Yagual</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: #333;
-    min-height: 100vh;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            min-height: 100vh;
+        }
 
-header {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 4px solid #FF8C00;
-}
+        header {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #FF8C00;
+        }
 
-.logo-container {
-    margin-bottom: 1rem;
-}
+        .logo-container {
+            margin-bottom: 1rem;
+        }
 
-.logo {
-    max-width: 200px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 4px solid white;
-}
+        .logo {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 4px solid white;
+        }
 
-h1 {
-    font-size: 2.5rem;
-    color: #1e3c72;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0.5rem;
-}
+        h1 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5rem;
+        }
 
-h2 {
-    font-size: 1.8rem;
-    color: #2a5298;
-    font-style: italic;
-    margin-bottom: 1rem;
-}
+        h2 {
+            font-size: 1.8rem;
+            color: #2a5298;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
 
-.contact-info {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 1rem;
-    border-radius: 10px;
-    display: inline-block;
-    margin-top: 1rem;
-}
+        .contact-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
 
-.contact-info p {
-    font-size: 1.1rem;
-    color: #1e3c72;
-    font-weight: bold;
-}
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #1e3c72;
+            font-weight: bold;
+        }
 
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-.products-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+        .products-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-.products-section h3 {
-    text-align: center;
-    color: #1e3c72;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    border-bottom: 3px solid #FFD700;
-    padding-bottom: 1rem;
-}
+        .products-section h3 {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 1rem;
+        }
 
-/* Loading y Error */
-.loading, .error {
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.2rem;
-}
+        .loading, .error {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+        }
 
-.loading {
-    color: #2a5298;
-}
+        .loading {
+            color: #2a5298;
+        }
 
-.error {
-    color: #d32f2f;
-    background: #ffebee;
-    border-radius: 8px;
-}
+        .error {
+            color: #d32f2f;
+            background: #ffebee;
+            border-radius: 8px;
+        }
 
-/* Tabla de productos */
-#products-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
+        #products-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
 
-#products-table thead {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-}
+        #products-table thead {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        }
 
-#products-table th {
-    padding: 1rem;
-    text-align: left;
-    color: #1e3c72;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    border-bottom: 3px solid #FF8C00;
-}
+        #products-table th {
+            padding: 1rem;
+            text-align: left;
+            color: #1e3c72;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-bottom: 3px solid #FF8C00;
+        }
 
-#products-table tbody tr {
-    border-bottom: 1px solid #e0e0e0;
-    transition: background-color 0.3s ease;
-}
+        #products-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
 
-#products-table tbody tr:hover {
-    background-color: #fff8e1;
-}
+        #products-table tbody tr:hover {
+            background-color: #fff8e1;
+        }
 
-#products-table tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
-}
+        #products-table tbody tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
 
-#products-table tbody tr:nth-child(even):hover {
-    background-color: #fff8e1;
-}
+        #products-table tbody tr:nth-child(even):hover {
+            background-color: #fff8e1;
+        }
 
-#products-table td {
-    padding: 1rem;
-    font-size: 1rem;
-}
+        #products-table td {
+            padding: 1rem;
+            font-size: 1rem;
+        }
 
-#products-table td.price {
-    font-weight: bold;
-    color: #2a5298;
-    font-size: 1.1rem;
-}
+        #products-table td.price {
+            font-weight: bold;
+            color: #2a5298;
+            font-size: 1.1rem;
+        }
 
-/* Sección de actualización */
-.update-info {
-    text-align: center;
-    margin-top: 2rem;
-    color: white;
-    font-style: italic;
-}
+        .update-info {
+            text-align: center;
+            margin-top: 2rem;
+            color: white;
+            font-style: italic;
+        }
 
-.update-info span {
-    font-weight: bold;
-}
+        .update-info span {
+            font-weight: bold;
+        }
 
-/* Footer */
-footer {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
-}
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.8rem;
-    }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
 
-    h2 {
-        font-size: 1.3rem;
-    }
+            h2 {
+                font-size: 1.3rem;
+            }
 
-    .logo {
-        max-width: 150px;
-    }
+            .logo {
+                max-width: 150px;
+            }
 
-    .contact-info p {
-        font-size: 0.9rem;
-    }
+            .contact-info p {
+                font-size: 0.9rem;
+            }
 
-    #products-table {
-        font-size: 0.9rem;
-    }
+            #products-table {
+                font-size: 0.9rem;
+            }
 
-    #products-table th,
-    #products-table td {
-        padding: 0.5rem;
-    }
-}
+            #products-table th,
+            #products-table td {
+                padding: 0.5rem;
+            }
+        }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-    }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
 
-    h2 {
-        font-size: 1.1rem;
-    }
+            h2 {
+                font-size: 1.1rem;
+            }
 
-    .products-section {
-        padding: 1rem;
-    }
+            .products-section {
+                padding: 1rem;
+            }
 
-    #products-table {
-        font-size: 0.8rem;
-    }
-}
+            #products-table {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo Pescadería Germania Yagual" class="logo">
+        </div>
+        <h1>PESCADERÍA Y MARISCOS</h1>
+        <h2>Germania Yagual</h2>
+        <div class="contact-info">
+            <p>📞 TELÉFONO: 0984624330 - 0980415136 - 0939099359</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <h3>LISTA DE PRECIOS</h3>
+            <div class="loading" id="loading">Cargando productos...</div>
+            <div class="error" id="error" style="display: none;"></div>
+            
+            <table id="products-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Medida</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="products-body">
+                </tbody>
+            </table>
+        </section>
+
+        <section class="update-info">
+            <p>Última actualización: <span id="last-update"></span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pescadería y Mariscos Germania Yagual - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <script>
+        // Configuración de Supabase
+        const SUPABASE_URL = 'https://ccwuhxkatoahaqlancdt.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjd3VoeGthdG9haGFxbGFuY2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5ODM2MTEsImV4cCI6MjA2OTU1OTYxMX0.yPaNaqO2dq6AIBfTdkRo12AgsFKdgQHdnK8ijRS7mCg';
+
+        // Inicializar cliente de Supabase
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Función para formatear precio
+        function formatPrice(price) {
+            return `$${parseFloat(price).toFixed(2)}`;
+        }
+
+        // Función para cargar productos desde Supabase
+        async function loadProducts() {
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const tableEl = document.getElementById('products-table');
+            const tbodyEl = document.getElementById('products-body');
+            const lastUpdateEl = document.getElementById('last-update');
+
+            try {
+                // Mostrar loading
+                loadingEl.style.display = 'block';
+                errorEl.style.display = 'none';
+                tableEl.style.display = 'none';
+
+                // Obtener datos de Supabase
+                const { data, error } = await supabase
+                    .from('PRODUCTOS')
+                    .select('*')
+                    .order('Producto', { ascending: true });
+
+                if (error) {
+                    throw error;
+                }
+
+                // Limpiar tabla
+                tbodyEl.innerHTML = '';
+
+                // Agregar productos a la tabla
+                data.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product.Producto}</td>
+                        <td>${product.Medida}</td>
+                        <td class="price">${formatPrice(product.Precio)}</td>
+                    `;
+                    tbodyEl.appendChild(row);
+                });
+
+                // Ocultar loading y mostrar tabla
+                loadingEl.style.display = 'none';
+                tableEl.style.display = 'table';
+
+                // Actualizar fecha
+                const now = new Date();
+                lastUpdateEl.textContent = now.toLocaleString('es-EC', {
+                    dateStyle: 'full',
+                    timeStyle: 'short'
+                });
+
+                console.log(`✅ ${data.length} productos cargados exitosamente`);
+
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+                loadingEl.style.display = 'none';
+                errorEl.textContent = `Error al cargar los productos: ${error.message}`;
+                errorEl.style.display = 'block';
+            }
+        }
+
+        // Cargar productos al iniciar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            
+            // Opcional: Recargar productos cada 5 minutos
+            setInterval(loadProducts, 5 * 60 * 1000);
+        });
+
+        // Suscribirse a cambios en tiempo real
+        const productSubscription = supabase
+            .channel('productos-changes')
+            .on('postgres_changes', 
+                { 
+                    event: '*', 
+                    schema: 'public', 
+                    table: 'PRODUCTOS' 
+                }, 
+                (payload) => {
+                    console.log('🔔 Cambio detectado en productos:', payload);
+                    loadProducts();
+                }
+            )
+            .subscribe();
+
+        console.log('📡 Conexión con Supabase establecida');
+    </script>
+</body>
+</html>
