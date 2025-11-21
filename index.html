@@ -1,11 +1,10 @@
 
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pescadería y Mariscos Germania Yagual</title>
-    
+    <title>Catálogo - Pescadería José Luis Holguín</title>
     <style>
         * {
             margin: 0;
@@ -14,351 +13,497 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d1421 0%, #1a237e 100%);
             color: #333;
             min-height: 100vh;
         }
 
-        header {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            padding: 2rem;
+        .header {
+            background: linear-gradient(135deg, #0d1421 0%, #1a237e 50%, #283593 100%);
+            color: white;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-bottom: 4px solid #FF8C00;
-        }
-
-        .logo-container {
-            margin-bottom: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .logo {
-            max-width: 200px;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border: 4px solid white;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #1e3c72;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 0.5rem;
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            color: #2a5298;
+        .company-name {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 16px;
+            opacity: 0.9;
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
         }
 
         .contact-info {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1rem;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 14px;
         }
 
-        .contact-info p {
-            font-size: 1.1rem;
-            color: #1e3c72;
-            font-weight: bold;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .products-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .products-section h3 {
-            text-align: center;
-            color: #1e3c72;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            border-bottom: 3px solid #FFD700;
-            padding-bottom: 1rem;
-        }
-
-        .loading, .error {
-            text-align: center;
-            padding: 2rem;
-            font-size: 1.2rem;
-        }
-
-        .loading {
-            color: #2a5298;
-        }
-
-        .error {
-            color: #d32f2f;
-            background: #ffebee;
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
             border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
 
-        #products-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        #products-table thead {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        #products-table th {
-            padding: 1rem;
-            text-align: left;
-            color: #1e3c72;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            border-bottom: 3px solid #FF8C00;
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid #1a237e;
         }
 
-        #products-table tbody tr {
-            border-bottom: 1px solid #e0e0e0;
-            transition: background-color 0.3s ease;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        #products-table tbody tr:hover {
-            background-color: #fff8e1;
-        }
-
-        #products-table tbody tr:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        #products-table tbody tr:nth-child(even):hover {
-            background-color: #fff8e1;
-        }
-
-        #products-table td {
-            padding: 1rem;
-            font-size: 1rem;
-        }
-
-        #products-table td.price {
-            font-weight: bold;
-            color: #2a5298;
-            font-size: 1.1rem;
-        }
-
-        .update-info {
-            text-align: center;
-            margin-top: 2rem;
+        .product-header {
+            background: linear-gradient(135deg, #0d1421 0%, #1a237e 100%);
             color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-measure {
+            font-size: 14px;
+            opacity: 0.9;
             font-style: italic;
         }
 
-        .update-info span {
-            font-weight: bold;
+        .product-image-wrapper {
+            position: relative;
+            height: 250px;
+            background: #f8f9fa;
+            overflow: hidden;
+            cursor: pointer;
         }
 
-        footer {
-            background: rgba(0, 0, 0, 0.8);
+        .product-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .zoom-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-image-wrapper:hover .zoom-icon {
+            opacity: 1;
+        }
+
+        .no-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .product-footer {
+            background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff6b35;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .price-label {
+            font-size: 13px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .error-message h3 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #0d1421 0%, #263238 100%);
             color: white;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .certifications {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+
+        .footer-content {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
+            .company-name {
+                font-size: 24px;
             }
 
-            h2 {
-                font-size: 1.3rem;
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .logo {
-                max-width: 150px;
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
             }
 
-            .contact-info p {
-                font-size: 0.9rem;
+            .modal-content {
+                max-width: 95%;
             }
 
-            #products-table {
-                font-size: 0.9rem;
-            }
-
-            #products-table th,
-            #products-table td {
-                padding: 0.5rem;
+            .close-modal {
+                top: 10px;
+                right: 10px;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.1rem;
-            }
-
-            .products-section {
-                padding: 1rem;
-            }
-
-            #products-table {
-                font-size: 0.8rem;
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo Pescadería Germania Yagual" class="logo">
+    <div class="header">
+        <div class="logo">
+            <img src="https://res.cloudinary.com/drbromesx/image/upload/v1754546724/Captura_de_pantalla_2025-08-07_010441_juxbwl.png" alt="Logo">
         </div>
-        <h1>PESCADERÍA Y MARISCOS</h1>
-        <h2>Germania Yagual</h2>
+        <h1 class="company-name">Pescadería y Mariscos<br>José Luis Holguín</h1>
+        <p class="tagline">Producto fresco de calidad • Más de 20 años de experiencia</p>
+        
         <div class="contact-info">
-            <p>📞 TELÉFONO: 0984624330 - 0980415136 - 0939099359</p>
+            <div class="contact-item">📱 0980415136 • 0939099359</div>
+            <div class="contact-item">📧 joseholguin1981@gmail.com</div>
+            <div class="contact-item">📍 Santa Elena - La Libertad, Ecuador</div>
         </div>
-    </header>
+    </div>
 
-    <main>
-        <section class="products-section">
-            <h3>LISTA DE PRECIOS</h3>
-            <div class="loading" id="loading">Cargando productos...</div>
-            <div class="error" id="error" style="display: none;"></div>
-            
-            <table id="products-table" style="display: none;">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Medida</th>
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-                <tbody id="products-body">
-                </tbody>
-            </table>
-        </section>
+    <div class="container">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            Cargando productos...
+        </div>
+        <div id="products-grid" class="products-grid"></div>
+    </div>
 
-        <section class="update-info">
-            <p>Última actualización: <span id="last-update"></span></p>
-        </section>
-    </main>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Imagen ampliada">
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Pescadería y Mariscos Germania Yagual - Todos los derechos reservados</p>
-    </footer>
+    <div class="footer">
+        <div class="certifications">
+            Trabajamos según las normas internacionales:<br>
+            BPM • ISO 9001 • ISO 14001 • ISO 45001
+        </div>
+        <div class="footer-content">
+            <p><strong>Pescadería y Mariscos José Luis Holguín</strong></p>
+            <p>Producto fresco de calidad garantizada</p>
+            <p>&copy; 2025 - Todos los derechos reservados</p>
+        </div>
+    </div>
 
-    <!-- Supabase JS Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
     <script>
-        // Configuración de Supabase
         const SUPABASE_URL = 'https://ccwuhxkatoahaqlancdt.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjd3VoeGthdG9haGFxbGFuY2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5ODM2MTEsImV4cCI6MjA2OTU1OTYxMX0.yPaNaqO2dq6AIBfTdkRo12AgsFKdgQHdnK8ijRS7mCg';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjd3VoeGthdG9haGFxbGFuY2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5ODM2MTEsImV4cCI6MjA2OTU1OTYxMX0.yPaNaqO2dq6AIBfTdkRo12AgsFKdgQHdnK8ijRS7mCg';
 
-        // Inicializar cliente de Supabase
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // Función para formatear precio
-        function formatPrice(price) {
-            return `$${parseFloat(price).toFixed(2)}`;
-        }
-
-        // Función para cargar productos desde Supabase
         async function loadProducts() {
-            const loadingEl = document.getElementById('loading');
-            const errorEl = document.getElementById('error');
-            const tableEl = document.getElementById('products-table');
-            const tbodyEl = document.getElementById('products-body');
-            const lastUpdateEl = document.getElementById('last-update');
-
             try {
-                // Mostrar loading
-                loadingEl.style.display = 'block';
-                errorEl.style.display = 'none';
-                tableEl.style.display = 'none';
-
-                // Obtener datos de Supabase
-                const { data, error } = await supabase
+                console.log('Cargando productos desde Supabase...');
+                
+                const { data: products, error } = await supabase
                     .from('PRODUCTOS')
                     .select('*')
                     .order('Producto', { ascending: true });
 
-                if (error) {
-                    throw error;
-                }
+                if (error) throw error;
 
-                // Limpiar tabla
-                tbodyEl.innerHTML = '';
-
-                // Agregar productos a la tabla
-                data.forEach(product => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${product.Producto}</td>
-                        <td>${product.Medida}</td>
-                        <td class="price">${formatPrice(product.Precio)}</td>
+                console.log('Productos cargados:', products.length);
+                
+                document.getElementById('loading').style.display = 'none';
+                
+                if (products.length === 0) {
+                    document.getElementById('products-grid').innerHTML = `
+                        <div class="error-message">
+                            <h3>No hay productos disponibles</h3>
+                            <p>La tabla PRODUCTOS está vacía</p>
+                        </div>
                     `;
-                    tbodyEl.appendChild(row);
+                    return;
+                }
+                
+                const grid = document.getElementById('products-grid');
+                
+                products.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    
+                    const imageHtml = product.imagen_url 
+                        ? `<img src="${product.imagen_url}" alt="${product.Producto}" onclick="openModal('${product.imagen_url}')">
+                           <div class="zoom-icon">🔍</div>`
+                        : '<div class="no-image">Sin imagen disponible</div>';
+                    
+                    card.innerHTML = `
+                        <div class="product-header">
+                            <div class="product-name">${product.Producto || 'Sin nombre'}</div>
+                            <div class="product-measure">${product.Medida || 'Sin medida'}</div>
+                        </div>
+                        <div class="product-image-wrapper">
+                            ${imageHtml}
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$${parseFloat(product.Precio || 0).toFixed(2)}</div>
+                            <div class="price-label">Precio por ${(product.Medida || '').toLowerCase()}</div>
+                        </div>
+                    `;
+                    
+                    grid.appendChild(card);
                 });
 
-                // Ocultar loading y mostrar tabla
-                loadingEl.style.display = 'none';
-                tableEl.style.display = 'table';
-
-                // Actualizar fecha
-                const now = new Date();
-                lastUpdateEl.textContent = now.toLocaleString('es-EC', {
-                    dateStyle: 'full',
-                    timeStyle: 'short'
-                });
-
-                console.log(`✅ ${data.length} productos cargados exitosamente`);
-
+                // Suscripción a cambios en tiempo real
+                supabase
+                    .channel('productos-changes')
+                    .on('postgres_changes', 
+                        { 
+                            event: '*', 
+                            schema: 'public', 
+                            table: 'PRODUCTOS' 
+                        }, 
+                        (payload) => {
+                            console.log('🔔 Cambio detectado:', payload);
+                            location.reload(); // Recargar página cuando hay cambios
+                        }
+                    )
+                    .subscribe();
+                
             } catch (error) {
-                console.error('Error al cargar productos:', error);
-                loadingEl.style.display = 'none';
-                errorEl.textContent = `Error al cargar los productos: ${error.message}`;
-                errorEl.style.display = 'block';
+                console.error('Error completo:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('products-grid').innerHTML = `
+                    <div class="error-message">
+                        <h3>Error al cargar productos</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p style="margin-top: 15px;">Verifica que:</p>
+                        <ul style="text-align: left; max-width: 500px; margin: 10px auto;">
+                            <li>La tabla "PRODUCTOS" existe en Supabase</li>
+                            <li>RLS está desactivado o tiene políticas públicas</li>
+                            <li>Las columnas son: Producto, Medida, Precio, imagen_url</li>
+                        </ul>
+                    </div>
+                `;
             }
         }
 
-        // Cargar productos al iniciar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProducts();
-            
-            // Opcional: Recargar productos cada 5 minutos
-            setInterval(loadProducts, 5 * 60 * 1000);
+        function openModal(imageUrl) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = imageUrl;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
 
-        // Suscribirse a cambios en tiempo real
-        const productSubscription = supabase
-            .channel('productos-changes')
-            .on('postgres_changes', 
-                { 
-                    event: '*', 
-                    schema: 'public', 
-                    table: 'PRODUCTOS' 
-                }, 
-                (payload) => {
-                    console.log('🔔 Cambio detectado en productos:', payload);
-                    loadProducts();
-                }
-            )
-            .subscribe();
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
 
-        console.log('📡 Conexión con Supabase establecida');
+        loadProducts();
     </script>
 </body>
 </html>
